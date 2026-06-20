@@ -1,21 +1,21 @@
-use super::sports_car_state::SportsCarState;
+use crate::assembler::state::State;
 use crate::Pose;
-use crate::assembler::Assembler;
+use crate::assembler::assembler::Assembler;
 
-pub struct SportsCarExecutor {
-    pose:Pose,
+pub struct Executor {
+    pose: Pose,
     state: Box<dyn Assembler>,
 }
 
-impl SportsCarExecutor{
+impl Executor {
     pub fn with_pose(pose: Pose) -> Self {
-        SportsCarExecutor {
+        Executor {
             pose,
-            state: Box::new(SportsCarState::default())
+            state: Box::new(State::default())
         }
     }
 
-    pub fn execute(&mut self, cmds:&str) {
+    pub fn execute(&mut self, cmds: &str) {
         for cmd in cmds.chars() {
             match cmd {
                 'B' => self.state.be_reverse(),
@@ -30,7 +30,7 @@ impl SportsCarExecutor{
         }
     }
 
-    pub fn query(&self) ->Pose {
+    pub fn query(&self) -> Pose {
         self.pose
     }
 }

@@ -1,4 +1,4 @@
-use crate::action::Action;
+use crate::action::action::Action;
 pub(crate) trait Assembler {
     fn assemble(&self, cmd: char) -> Vec<Action> {
         match cmd {
