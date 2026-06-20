@@ -1,12 +1,12 @@
 use crate::Pose;
 
-pub struct Executor {
+pub struct  BusExecutor {
     pose: Pose,
 }
 
-impl Executor {
+impl BusExecutor {
     pub fn with_pose(pose: Pose) -> Self {
-        Executor {
+        BusExecutor {
             pose,
         }
     }
